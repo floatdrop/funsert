@@ -2,8 +2,6 @@
 
 > Functional assert library
 
-Early prototype.
-
 ## Install
 
 ```
