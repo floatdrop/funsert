@@ -16,10 +16,10 @@ var is = require('funsert');
 
 var aboveFive = is.greaterThan(5);
 var belowTen = is.ok(function (x) { return x < 10; }, 'is not below 10');
-var inBoundary = is(aboveFive, belowTen);
+var inBounds = is(aboveFive, belowTen);
 
-inBoundary(7);
-inBoundary(3);
+inBounds(7);
+inBounds(3);
 //=> Throws '3 is not greater than 5'
 ```
 
@@ -34,7 +34,7 @@ Compose assertions with `and` operation.
 
 ### funsert.ok(check, message)
 
-Runs `check` function and throws Error, if it returns false value.
+Runs `check` function and throws Error, if it returns `false`.
 
 ### Helpers
 
