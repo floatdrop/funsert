@@ -23,7 +23,9 @@
     "functional",
     "compose"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "predicates": "^1.0.1"
+  },
   "devDependencies": {
     "mocha": "^2.2.5"
   }

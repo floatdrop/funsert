@@ -14,16 +14,15 @@ $ npm install --save funsert
 ## Usage
 
 ```js
-var funsert = require('funsert');
+var is = require('funsert');
 
-var one = funsert.equal(1);
-var two = funsert.equal(2);
-var assert = funsert([one, two]);
+var aboveFive = is.greaterThan(5);
+var belowTen = is.ok(x => x < 10, 'is not below 10');
+var inBoundary = is(aboveFive, belowTen);
 
-assert(1);
-assert(2);
-assert(3);
-//=> Throws '3 is not equal 1 and 3 is not equal 2'
+inBoundary(7);
+inBoundary(3);
+//=> Throws '3 is not greater than 5'
 ```
 
 
@@ -38,11 +37,26 @@ Compose assertions.
 - Array will be treaten as `or`
 - Arguments will be treated as `and`
 
-### funsert.equal(object)
+### funsert.ok(check, message)
 
-Asserts, that input will be equal to `object`.
+Runs `check` function and throws Error, if it returns false value.
 
-Returns function with assertion.
+### Helpers
+
+Funsert wraps some predicate functions from [predicates](https://github.com/wookieb/predicates):
+
+- array
+- equal
+- lessThan
+- greaterThan
+- instanceOf
+- hasOwnProperty
+- hasProperty
+- in
+- matches
+- strictEqual
+- endsWith
+- startsWith
 
 ## License
 
