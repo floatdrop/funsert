@@ -15,7 +15,7 @@ $ npm install --save funsert
 var is = require('funsert');
 
 var aboveFive = is.greaterThan(5);
-var belowTen = is.ok(function (x) { return x < 10; }, 'is not below 10');
+var belowTen = is.ok(function (x) { return x < 10; }, 'below 10');
 var inBounds = is(aboveFive, belowTen);
 
 inBounds(7);
@@ -32,7 +32,7 @@ This is still under heavy development. Happy to hear suggestions before `1.0.0` 
 
 Compose assertions with `and` operation.
 
-### funsert.ok(check, message)
+### funsert.ok(check, [message])
 
 Runs `check` function and throws Error, if it returns `false`.
 

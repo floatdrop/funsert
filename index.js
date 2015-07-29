@@ -12,40 +12,40 @@ function funsert() {
 }
 
 function throwify(predicate, message) {
-	message = message || 'is not passing assertion';
+	message = message || 'passing assertion';
 
 	return function (target) {
 		var assert = predicate(target);
 
 		return function (source) {
 			if (!assert(source)) {
-				throw new Error(source + ' ' + message + ' ' + target);
+				throw new Error(source + ' is not ' + message + ' ' + target);
 			}
 		};
 	};
 }
 
 funsert.ok = function ok(assert, message) {
-	message = message || 'is not passing assertion';
+	message = message || 'passing assertion';
 
 	return function (source) {
 		if (!assert(source)) {
-			throw new Error(source + ' ' + message);
+			throw new Error(source + ' is not ' + message);
 		}
 	};
 };
 
-funsert.array = throwify(is.array, 'is not an array');
-funsert.equal = throwify(is.equal, 'is not equal');
-funsert.lessThan = throwify(is.lessThan, 'is not less than');
-funsert.greaterThan = throwify(is.greaterThan, 'is not greater than');
-funsert.instanceOf = throwify(is.instanceOf, 'is not instance of');
-funsert.hasOwnProperty = throwify(is.hasOwnProperty, 'is not have own property');
-funsert.hasProperty = throwify(is.hasProperty, 'is not have own property');
-funsert.in = throwify(is.in, 'is not in');
-funsert.matches = throwify(is.matches, 'is not matches');
-funsert.strictEqual = throwify(is.strictEqual, 'is not strict equal');
-funsert.endsWith = throwify(is.endsWith, 'is not ends with');
-funsert.startsWith = throwify(is.startsWith, 'is not starts with');
+funsert.array = throwify(is.array, 'an array');
+funsert.equal = throwify(is.equal, 'equal');
+funsert.lessThan = throwify(is.lessThan, 'less than');
+funsert.greaterThan = throwify(is.greaterThan, 'greater than');
+funsert.instanceOf = throwify(is.instanceOf, 'instance of');
+funsert.hasOwnProperty = throwify(is.hasOwnProperty, 'have own property');
+funsert.hasProperty = throwify(is.hasProperty, 'have own property');
+funsert.in = throwify(is.in, 'in');
+funsert.matches = throwify(is.matches, 'matches');
+funsert.strictEqual = throwify(is.strictEqual, 'strict equal');
+funsert.endsWith = throwify(is.endsWith, 'ends with');
+funsert.startsWith = throwify(is.startsWith, 'starts with');
 
 module.exports = funsert;
