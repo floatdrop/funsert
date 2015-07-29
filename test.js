@@ -32,20 +32,6 @@ describe('funsert', function () {
 
 	it('should return function', function () {
 		assert.strictEqual(typeof is(equalOne, equalTwo), 'function');
-		assert.strictEqual(typeof is([equalOne, equalTwo]), 'function');
-	});
-
-	it('should not throw on `or` composition with valid assertion', function () {
-		assert.doesNotThrow(function () {
-			is([equalOne, equalTwo])(1);
-			is([equalOne, equalTwo])(2);
-		});
-	});
-
-	it('should throw on `or` composition with invalid assertion', function () {
-		assert.throws(function () {
-			is([equalOne, equalTwo])(3);
-		}, /3 is not equal 1 and 3 is not equal 2/);
 	});
 
 	it('should throw on `and` composition with valid assertion', function () {

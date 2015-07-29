@@ -17,7 +17,7 @@ $ npm install --save funsert
 var is = require('funsert');
 
 var aboveFive = is.greaterThan(5);
-var belowTen = is.ok(x => x < 10, 'is not below 10');
+var belowTen = is.ok(function (x) { return x < 10; }, 'is not below 10');
 var inBoundary = is(aboveFive, belowTen);
 
 inBoundary(7);
@@ -32,10 +32,7 @@ This is still under heavy development. Happy to hear suggestions before `1.0.0` 
 
 ### funsert(assertions...)
 
-Compose assertions.
-
-- Array will be treaten as `or`
-- Arguments will be treated as `and`
+Compose assertions with `and` operation.
 
 ### funsert.ok(check, message)
 
