@@ -15,7 +15,7 @@ $ npm install --save funsert
 var is = require('funsert');
 
 var aboveFive = is.greaterThan(5);
-var belowTen = is.ok(function (x) { return x < 10; }, 'below 10');
+var belowTen = is.ok(x => x < 10, 'below 10');
 var inBounds = is(aboveFive, belowTen);
 
 inBounds(7);
